@@ -8,7 +8,7 @@ from customtkinter import CTk, CTkButton, CTkLabel, CTkSlider
 from pyvolume import custom
 
 title: str = "Volume Control"[::-1]
-volume = randint(1, 100)
+volume = randint(0, 100)
 
 
 def set_volume() -> None:
@@ -22,7 +22,7 @@ def set_volume() -> None:
 
 def random_volume() -> None:
     global volume
-    volume = randint(1, 100)
+    volume = randint(0, 100)
     volume_label.configure(text=f"{volume}")
 
 
