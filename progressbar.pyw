@@ -1,92 +1,119 @@
-import threading
-import time
-import tkinter as tk
-import tkinter.messagebox as msg
-import tkinter.ttk as ttk
+from threading import Thread
+from time import sleep
+from tkinter import HORIZONTAL
+from tkinter.messagebox import showinfo
 
-import pyvolume
+from customtkinter import CTk, CTkButton, CTkLabel, CTkProgressBar  # type: ignore
+from pyvolume import custom  # type: ignore
 
 # Initialise window
-root = tk.Tk()
+root: CTk = CTk()
 root.title("Volume Control")
 root.geometry("300x300+200+200")
-root.attributes("-topmost", 1)
+root.attributes("-topmost", 1)  # type: ignore
 root.resizable(False, False)
 
 wait_time = 100
 volume = 14
-pyvolume.custom(int(volume))
+custom(int(volume))
 
 
-def increase_vol():
+def increase_vol() -> None:
+    """Increases volume"""
+
     global wait_time
     global volume
 
     if wait_time != 100:
+
         for _ in range(int(100 / wait_time)):
-            progress["value"] += int(wait_time)
-            time.sleep(1)
+
+            progress.set(float(wait_time / 100))  # type: ignore
+            root.update()
+            sleep(1)
+
         wait_time /= 2
-        progress["value"] = 0
+        progress.set(0)  # type: ignore
         volume += 1
-        pyvolume.custom(int(volume))
-        msg.showinfo(title="Success!", message="Volume has been incremented by 1!")
+        custom(int(volume))
+        showinfo(title="Success!", message="Volume has been incremented by 1!")
 
     elif wait_time == 100:
-        progress["value"] = int(wait_time)
-        time.sleep(1)
+
+        progress.set(int(wait_time / 100))  # type: ignore
+        root.update()
+        sleep(1)
         wait_time /= 2
-        progress["value"] = 0
+        progress.set(0)  # type: ignore
         volume += 1
-        pyvolume.custom(int(volume))
-        msg.showinfo(title="Success!", message="Volume has been incremented by 1!")
+        custom(int(volume))
+        showinfo(title="Success!", message="Volume has been incremented by 1!")
 
 
-def increase_volume():
-    thread = threading.Thread(target=increase_vol)
+def increase_volume() -> None:
+    """Starts volume increasing thread"""
+
+    thread: Thread = Thread(target=increase_vol)
     thread.start()
 
 
-def decrease_vol():
+def decrease_vol() -> None:
+    """Decreases volume"""
+
     global wait_time
     global volume
 
     if wait_time != 100:
-        for i in range(int(100 / wait_time)):
-            progress["value"] += int(wait_time)
-            time.sleep(1)
+
+        for _ in range(int(100 / wait_time)):
+
+            progress.set(float(wait_time / 100))  # type: ignore
+            root.update()
+            sleep(1)
+
         wait_time /= 2
-        progress["value"] = 0
+        progress.set(0)  # type: ignore
         volume -= 1
-        pyvolume.custom(int(volume))
-        msg.showinfo(title="Success!", message="Volume has been decremented by 1!")
+        custom(int(volume))
+        showinfo(title="Success!", message="Volume has been decremented by 1!")
 
     elif wait_time == 100:
-        progress["value"] = int(wait_time)
-        time.sleep(1)
+
+        progress.set(int(wait_time / 100))  # type: ignore
+        root.update()
+        sleep(1)
         wait_time /= 2
-        progress["value"] = 0
+        progress.set(0)  # type: ignore
         volume -= 1
-        pyvolume.custom(int(volume))
-        msg.showinfo(title="Success!", message="Volume has been decremented by 1!")
+        custom(int(volume))
+        showinfo(title="Success!", message="Volume has been decremented by 1!")
 
 
-def decrease_volume():
-    thread = threading.Thread(target=decrease_vol)
+def decrease_volume() -> None:
+    """starts volume decreasing thread"""
+
+    thread: Thread = Thread(target=decrease_vol)
     thread.start()
 
 
-label = tk.Label(root, text="Volume Control", font=("arial", 20))
-label.pack(pady=10)
+label: CTkLabel = CTkLabel(master=root, text="Volume Control", font=("arial", 20))
+label.pack(pady=10)  # type: ignore
 
-plus = tk.Button(root, text="+", font=("arial", 14), command=increase_volume)
-plus.pack(padx=110, pady=20)
+plus: CTkButton = CTkButton(
+    master=root, text="+", font=("arial", 14), command=increase_volume
+)
+plus.pack(padx=110, pady=20)  # type: ignore
 
-minus = tk.Button(root, text="-", font=("arial", 14), command=decrease_volume)
-minus.pack(padx=130)
+minus: CTkButton = CTkButton(
+    master=root, text="-", font=("arial", 14), command=decrease_volume
+)
+minus.pack(padx=130)  # type: ignore
 
-progress = ttk.Progressbar(root, orient=tk.HORIZONTAL, length=100)
-progress.pack(pady=15)
+progress: CTkProgressBar = CTkProgressBar(
+    master=root, orientation=HORIZONTAL, width=100
+)
+progress.pack(pady=15)  # type: ignore
 
 if __name__ == "__main__":
-    root.mainloop()
+
+    root.mainloop()  # type: ignore
