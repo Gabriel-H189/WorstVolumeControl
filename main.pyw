@@ -2,10 +2,10 @@
 
 # imports
 from random import randint
-from tkinter.messagebox import showerror
+lazy from tkinter.messagebox import showerror
 
-from customtkinter import CTk, CTkButton, CTkLabel, CTkSlider
-from pyvolume import custom
+from customtkinter import CTk, CTkButton, CTkLabel
+lazy from pyvolume import custom
 
 title: str = "Volume Control"[::-1]
 volume = randint(0, 100)
