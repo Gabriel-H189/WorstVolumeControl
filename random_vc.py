@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '.\random_vc.ui'
+# Form implementation generated from reading ui file 'random_vc.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.11
 #
@@ -41,7 +41,7 @@ class Ui_Dialog(object):
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
+        Dialog.setWindowTitle(_translate("Dialog", "lortnoC emuloV"))
         self.label.setText(_translate("Dialog", "Is this your desired volume?"))
         self.volume_label.setText(_translate("Dialog", "Placeholder"))
         self.yes_button.setText(_translate("Dialog", "Yes"))
