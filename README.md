@@ -6,6 +6,10 @@ Programmers were asked to make the worst volume controls they could think of for
 
 `progressbar.pyw`: Another volume control that requires a progress bar to fill up in order for the volume to change.
 
+`random_vc.ui`, `random_vc.py` and `main_qt5.py`: The random volume control using PyQt5.
+
+`progressbar.ui`, `progress_ui.py` and `progressbar_qt5.py`: The progressbar volume control using PyQt5.
+
 ### Installation
 Create virtual environment: `python -m venv .venv`
 

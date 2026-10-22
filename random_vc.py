@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'random_vc.ui'
+# Form implementation generated from reading ui file '.\random_vc.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.11
 #
@@ -11,48 +11,48 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_Dialog(object):
-    def setupUi(self, Dialog):
-        Dialog.setObjectName("Dialog")
-        Dialog.resize(400, 400)
-        self.label = QtWidgets.QLabel(Dialog)
-        self.label.setGeometry(QtCore.QRect(40, 10, 391, 41))
+class Ui_frm_main(object):
+    def setupUi(self, frm_main):
+        frm_main.setObjectName("frm_main")
+        frm_main.resize(400, 400)
+        self.lbl_question = QtWidgets.QLabel(frm_main)
+        self.lbl_question.setGeometry(QtCore.QRect(40, 10, 391, 41))
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setPointSize(16)
-        self.label.setFont(font)
-        self.label.setObjectName("label")
-        self.volume_label = QtWidgets.QLabel(Dialog)
-        self.volume_label.setGeometry(QtCore.QRect(170, 160, 71, 61))
+        self.lbl_question.setFont(font)
+        self.lbl_question.setObjectName("lbl_question")
+        self.lbl_volume = QtWidgets.QLabel(frm_main)
+        self.lbl_volume.setGeometry(QtCore.QRect(170, 160, 71, 61))
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setPointSize(16)
-        self.volume_label.setFont(font)
-        self.volume_label.setObjectName("volume_label")
-        self.yes_button = QtWidgets.QPushButton(Dialog)
-        self.yes_button.setGeometry(QtCore.QRect(90, 350, 93, 28))
-        self.yes_button.setObjectName("yes_button")
-        self.no_button = QtWidgets.QPushButton(Dialog)
-        self.no_button.setGeometry(QtCore.QRect(220, 350, 93, 28))
-        self.no_button.setObjectName("no_button")
+        self.lbl_volume.setFont(font)
+        self.lbl_volume.setObjectName("lbl_volume")
+        self.btn_yes = QtWidgets.QPushButton(frm_main)
+        self.btn_yes.setGeometry(QtCore.QRect(90, 350, 93, 28))
+        self.btn_yes.setObjectName("btn_yes")
+        self.btn_no = QtWidgets.QPushButton(frm_main)
+        self.btn_no.setGeometry(QtCore.QRect(220, 350, 93, 28))
+        self.btn_no.setObjectName("btn_no")
 
-        self.retranslateUi(Dialog)
-        QtCore.QMetaObject.connectSlotsByName(Dialog)
+        self.retranslateUi(frm_main)
+        QtCore.QMetaObject.connectSlotsByName(frm_main)
 
-    def retranslateUi(self, Dialog):
+    def retranslateUi(self, frm_main):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "lortnoC emuloV"))
-        self.label.setText(_translate("Dialog", "Is this your desired volume?"))
-        self.volume_label.setText(_translate("Dialog", "Placeholder"))
-        self.yes_button.setText(_translate("Dialog", "Yes"))
-        self.no_button.setText(_translate("Dialog", "No"))
+        frm_main.setWindowTitle(_translate("frm_main", "lortnoC emuloV"))
+        self.lbl_question.setText(_translate("frm_main", "Is this your desired volume?"))
+        self.lbl_volume.setText(_translate("frm_main", "Placeholder"))
+        self.btn_yes.setText(_translate("frm_main", "Yes"))
+        self.btn_no.setText(_translate("frm_main", "No"))
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    Dialog = QtWidgets.QDialog()
-    ui = Ui_Dialog()
-    ui.setupUi(Dialog)
-    Dialog.show()
+    frm_main = QtWidgets.QDialog()
+    ui = Ui_frm_main()
+    ui.setupUi(frm_main)
+    frm_main.show()
     sys.exit(app.exec_())

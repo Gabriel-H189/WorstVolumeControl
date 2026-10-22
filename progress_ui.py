@@ -11,46 +11,46 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_Dialog(object):
-    def setupUi(self, Dialog):
-        Dialog.setObjectName("Dialog")
-        Dialog.resize(300, 300)
-        self.title = QtWidgets.QLabel(Dialog)
-        self.title.setGeometry(QtCore.QRect(50, 0, 201, 61))
+class Ui_frm_main(object):
+    def setupUi(self, frm_main):
+        frm_main.setObjectName("frm_main")
+        frm_main.resize(300, 300)
+        self.lbl_title = QtWidgets.QLabel(frm_main)
+        self.lbl_title.setGeometry(QtCore.QRect(50, 0, 201, 61))
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setPointSize(16)
-        self.title.setFont(font)
-        self.title.setAlignment(QtCore.Qt.AlignCenter)
-        self.title.setObjectName("title")
-        self.progressbar = QtWidgets.QProgressBar(Dialog)
+        self.lbl_title.setFont(font)
+        self.lbl_title.setAlignment(QtCore.Qt.AlignCenter)
+        self.lbl_title.setObjectName("lbl_title")
+        self.progressbar = QtWidgets.QProgressBar(frm_main)
         self.progressbar.setGeometry(QtCore.QRect(70, 80, 151, 23))
         self.progressbar.setProperty("value", 0)
         self.progressbar.setTextVisible(False)
         self.progressbar.setObjectName("progressbar")
-        self.plus_btn = QtWidgets.QPushButton(Dialog)
-        self.plus_btn.setGeometry(QtCore.QRect(90, 160, 93, 28))
-        self.plus_btn.setObjectName("plus_btn")
-        self.minus_btn = QtWidgets.QPushButton(Dialog)
-        self.minus_btn.setGeometry(QtCore.QRect(90, 200, 93, 28))
-        self.minus_btn.setObjectName("minus_btn")
+        self.btn_plus = QtWidgets.QPushButton(frm_main)
+        self.btn_plus.setGeometry(QtCore.QRect(90, 160, 93, 28))
+        self.btn_plus.setObjectName("btn_plus")
+        self.btn_minus = QtWidgets.QPushButton(frm_main)
+        self.btn_minus.setGeometry(QtCore.QRect(90, 200, 93, 28))
+        self.btn_minus.setObjectName("btn_minus")
 
-        self.retranslateUi(Dialog)
-        QtCore.QMetaObject.connectSlotsByName(Dialog)
+        self.retranslateUi(frm_main)
+        QtCore.QMetaObject.connectSlotsByName(frm_main)
 
-    def retranslateUi(self, Dialog):
+    def retranslateUi(self, frm_main):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Volume Control"))
-        self.title.setText(_translate("Dialog", "Volume Control"))
-        self.plus_btn.setText(_translate("Dialog", "+"))
-        self.minus_btn.setText(_translate("Dialog", "-"))
+        frm_main.setWindowTitle(_translate("frm_main", "Volume Control"))
+        self.lbl_title.setText(_translate("frm_main", "Volume Control"))
+        self.btn_plus.setText(_translate("frm_main", "+"))
+        self.btn_minus.setText(_translate("frm_main", "-"))
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    Dialog = QtWidgets.QDialog()
-    ui = Ui_Dialog()
-    ui.setupUi(Dialog)
-    Dialog.show()
+    frm_main = QtWidgets.QDialog()
+    ui = Ui_frm_main()
+    ui.setupUi(frm_main)
+    frm_main.show()
     sys.exit(app.exec_())

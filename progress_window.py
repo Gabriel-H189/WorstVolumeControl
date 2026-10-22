@@ -4,7 +4,7 @@ from typing import Self
 
 from PyQt5.QtWidgets import QApplication, QDialog, QMessageBox
 from PyQt5.QtCore import QObject, QThread, pyqtSignal, pyqtSlot
-from progress_ui import Ui_Dialog
+from progress_ui import Ui_frm_main
 from pyvolume import custom
 
 
@@ -36,7 +36,7 @@ class Worker(QObject):
 
     error = pyqtSignal(str)
 
-class ProgressWindow(QDialog, Ui_Dialog):
+class ProgressWindow(QDialog, Ui_frm_main):
     def __init__(self: Self) -> None:
         self.wait_time: int = 1
         self._thread: QThread | None = None
@@ -45,8 +45,8 @@ class ProgressWindow(QDialog, Ui_Dialog):
         # setup the window
         QDialog.__init__(self)
         self.setupUi(self)
-        self.plus_btn.clicked.connect(self.inc_volume)
-        self.minus_btn.clicked.connect(self.dec_volume)
+        self.btn_plus.clicked.connect(self.inc_volume)
+        self.btn_minus.clicked.connect(self.dec_volume)
 
         # set the default volume
         self.volume: int = 14
@@ -64,8 +64,8 @@ class ProgressWindow(QDialog, Ui_Dialog):
         if self._thread is not None:
             return
 
-        worker = Worker(self.volume + delta, self.wait_time)
-        thread = QThread(self)
+        worker: Worker = Worker(self.volume + delta, self.wait_time)
+        thread: QThread = QThread(self)
         worker.moveToThread(thread)
 
         thread.started.connect(worker.run)
@@ -79,8 +79,8 @@ class ProgressWindow(QDialog, Ui_Dialog):
 
         self._worker = worker
         self._thread = thread
-        self.plus_btn.setEnabled(False)
-        self.minus_btn.setEnabled(False)
+        self.btn_plus.setEnabled(False)
+        self.btn_minus.setEnabled(False)
         
         thread.start()
 
@@ -97,8 +97,8 @@ class ProgressWindow(QDialog, Ui_Dialog):
     def _operation_finished(self: Self) -> None:
         self._worker = None
         self._thread = None
-        self.plus_btn.setEnabled(True)
-        self.minus_btn.setEnabled(True)
+        self.btn_plus.setEnabled(True)
+        self.btn_minus.setEnabled(True)
 
     def set_volume(self: Self, volume: int) -> None:
         custom(volume)
