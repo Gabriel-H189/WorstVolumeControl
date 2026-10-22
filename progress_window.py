@@ -2,7 +2,7 @@ from sys import argv
 from time import sleep
 from typing import Self
 
-from PyQt5.QtWidgets import QApplication, QDialog, QMessageBox
+from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox
 from PyQt5.QtCore import QObject, QThread, pyqtSignal, pyqtSlot
 from progress_ui import Ui_frm_main
 from pyvolume import custom
@@ -36,15 +36,16 @@ class Worker(QObject):
 
     error = pyqtSignal(str)
 
-class ProgressWindow(QDialog, Ui_frm_main):
+class ProgressWindow(QMainWindow, Ui_frm_main):
     def __init__(self: Self) -> None:
         self.wait_time: int = 1
         self._thread: QThread | None = None
         self._worker: Worker | None = None
 
         # setup the window
-        QDialog.__init__(self)
+        QMainWindow.__init__(self)
         self.setupUi(self)
+
         self.btn_plus.clicked.connect(self.inc_volume)
         self.btn_minus.clicked.connect(self.dec_volume)
 
@@ -69,9 +70,11 @@ class ProgressWindow(QDialog, Ui_frm_main):
         worker.moveToThread(thread)
 
         thread.started.connect(worker.run)
+        
         worker.progress.connect(self.update_progress)
         worker.volume.connect(self._volume_changed)
         worker.error.connect(self._show_error)
+
         worker.finished.connect(thread.quit)
         worker.finished.connect(worker.deleteLater)
         thread.finished.connect(self._operation_finished)
@@ -97,6 +100,7 @@ class ProgressWindow(QDialog, Ui_frm_main):
     def _operation_finished(self: Self) -> None:
         self._worker = None
         self._thread = None
+        
         self.btn_plus.setEnabled(True)
         self.btn_minus.setEnabled(True)
 

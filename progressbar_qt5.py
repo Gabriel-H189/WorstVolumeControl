@@ -1,3 +1,6 @@
+# progressbar_qt5.py
+# -*- coding: utf-8 -*-
+
 # imports
 from sys import argv, exit
 

@@ -15,7 +15,20 @@ class Ui_frm_main(object):
     def setupUi(self, frm_main):
         frm_main.setObjectName("frm_main")
         frm_main.resize(300, 300)
-        self.lbl_title = QtWidgets.QLabel(frm_main)
+        self.centralwidget = QtWidgets.QWidget(frm_main)
+        self.centralwidget.setObjectName("centralwidget")
+        self.btn_plus = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_plus.setGeometry(QtCore.QRect(90, 160, 93, 28))
+        self.btn_plus.setObjectName("btn_plus")
+        self.btn_minus = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_minus.setGeometry(QtCore.QRect(90, 200, 93, 28))
+        self.btn_minus.setObjectName("btn_minus")
+        self.progressbar = QtWidgets.QProgressBar(self.centralwidget)
+        self.progressbar.setGeometry(QtCore.QRect(70, 80, 151, 23))
+        self.progressbar.setProperty("value", 0)
+        self.progressbar.setTextVisible(False)
+        self.progressbar.setObjectName("progressbar")
+        self.lbl_title = QtWidgets.QLabel(self.centralwidget)
         self.lbl_title.setGeometry(QtCore.QRect(50, 0, 201, 61))
         font = QtGui.QFont()
         font.setFamily("Arial")
@@ -23,17 +36,7 @@ class Ui_frm_main(object):
         self.lbl_title.setFont(font)
         self.lbl_title.setAlignment(QtCore.Qt.AlignCenter)
         self.lbl_title.setObjectName("lbl_title")
-        self.progressbar = QtWidgets.QProgressBar(frm_main)
-        self.progressbar.setGeometry(QtCore.QRect(70, 80, 151, 23))
-        self.progressbar.setProperty("value", 0)
-        self.progressbar.setTextVisible(False)
-        self.progressbar.setObjectName("progressbar")
-        self.btn_plus = QtWidgets.QPushButton(frm_main)
-        self.btn_plus.setGeometry(QtCore.QRect(90, 160, 93, 28))
-        self.btn_plus.setObjectName("btn_plus")
-        self.btn_minus = QtWidgets.QPushButton(frm_main)
-        self.btn_minus.setGeometry(QtCore.QRect(90, 200, 93, 28))
-        self.btn_minus.setObjectName("btn_minus")
+        frm_main.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(frm_main)
         QtCore.QMetaObject.connectSlotsByName(frm_main)
@@ -41,15 +44,15 @@ class Ui_frm_main(object):
     def retranslateUi(self, frm_main):
         _translate = QtCore.QCoreApplication.translate
         frm_main.setWindowTitle(_translate("frm_main", "Volume Control"))
-        self.lbl_title.setText(_translate("frm_main", "Volume Control"))
         self.btn_plus.setText(_translate("frm_main", "+"))
         self.btn_minus.setText(_translate("frm_main", "-"))
+        self.lbl_title.setText(_translate("frm_main", "Volume Control"))
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    frm_main = QtWidgets.QDialog()
+    frm_main = QtWidgets.QMainWindow()
     ui = Ui_frm_main()
     ui.setupUi(frm_main)
     frm_main.show()

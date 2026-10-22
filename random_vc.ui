@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>frm_main</class>
- <widget class="QDialog" name="frm_main">
+ <widget class="QMainWindow" name="frm_main">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -13,69 +13,71 @@
   <property name="windowTitle">
    <string>lortnoC emuloV</string>
   </property>
-  <widget class="QLabel" name="lbl_question">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>10</y>
-     <width>391</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Arial</family>
-     <pointsize>16</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Is this your desired volume?</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="lbl_volume">
-   <property name="geometry">
-    <rect>
-     <x>170</x>
-     <y>160</y>
-     <width>71</width>
-     <height>61</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Arial</family>
-     <pointsize>16</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Placeholder</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="btn_yes">
-   <property name="geometry">
-    <rect>
-     <x>90</x>
-     <y>350</y>
-     <width>93</width>
-     <height>28</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Yes</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="btn_no">
-   <property name="geometry">
-    <rect>
-     <x>220</x>
-     <y>350</y>
-     <width>93</width>
-     <height>28</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>No</string>
-   </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="lbl_question">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>10</y>
+      <width>391</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Is this your desired volume?</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_yes">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>350</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Yes</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_no">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>350</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>No</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_volume">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>160</y>
+      <width>71</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Placeholder</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>

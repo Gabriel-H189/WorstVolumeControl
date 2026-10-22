@@ -1,3 +1,6 @@
+# main_qt5.py
+# -*- coding: utf-8 -*-
+
 # required libraries
 from sys import argv, exit
 
